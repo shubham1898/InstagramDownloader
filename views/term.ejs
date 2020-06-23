@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>termt</title>
+</head>
+<body>
+        <h2>Here are some results</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Status</th>
+                    <th>Full Name</th>
+                    <th>Profile Pic</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <%if(list.length!=0){%>
+            <%list.forEach(function(li){%>
+               <tr>
+                   <td><%= li.user.username%></td> 
+                   <%if(!li.user.is_private){%>
+                   <td>Public</td>
+                   <%}else{%>
+                    <td style="color:red">Private</td>
+                    <%}%>
+                    <td><%= li.user.full_name%></td>
+                    <td><img src="<%= li.user.profile_pic_url%>" alt="profilepic"></td>
+                <tr>
+            <%})%>
+            <%}%>
+        
+            </tbody>
+        </table>
+
+        <a href="/inframe/bar"><button>Search again</button></a>
+</body>
+</html>

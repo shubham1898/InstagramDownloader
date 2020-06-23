@@ -1,0 +1,30 @@
+body{
+    background-color:lightpink;
+    height:100vh;
+    width:100vw;
+}
+.jumbotron{
+    background-color:rgba(247, 175, 235,0.6);
+   
+}
+.subhead1{
+    color:rgb(8,15,40);
+    font-weight: 400;
+}
+/* Frame form */
+#frame{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:auto;
+    width:50vw;
+    height:700px;
+   
+}
+
+.scroll::-webkit-scrollbar{
+    width: 0 !important;
+}
+ol{
+    padding-left:13px ;
+}

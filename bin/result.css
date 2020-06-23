@@ -1,0 +1,41 @@
+.jumbotron{
+    padding-bottom:5px;
+  
+}
+#images{
+    /* width:30%; */
+    /* margin: 20px 1.5%; */
+
+}
+#cards{
+    width:30%;
+    /* margin:1%; */
+    display:inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+
+}
+
+/* .search{
+    position:absolute;
+    position: fixed;
+    top:5%;
+    left:3%;
+    /* z-index: -1; */
+
+.search a{
+    
+    color: linen;
+    text-decoration-line: none;
+}
+/* .card-group{
+    flex-flow:row wrap;
+    flex-direction: row;
+
+} */
+.grids{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+}

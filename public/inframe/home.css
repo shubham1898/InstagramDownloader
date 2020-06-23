@@ -1,0 +1,28 @@
+body{
+    height:10vh;
+}
+
+#frameForm{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    display:block;
+    display:grid;
+    grid-template-rows: 3fr 2fr;
+
+}
+#search{
+    height:24px;
+    margin-bottom: 8px;
+   
+}
+#button{
+    height:30px;
+    border-radius: 12%;
+    border-color: pink;
+    background: lightgoldenrodyellow;
+    font-weight: 600;
+}
+td{
+    text-align: center;
+}

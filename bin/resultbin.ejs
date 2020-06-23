@@ -1,0 +1,53 @@
+<div class="container-fluid p-0 m-0">
+
+    <div class="row ">
+      <% for (var j=0,m=0;j<data.length/3;j++){%>
+      <div class="card-group justify-content-around m-0">
+        <% for(var i=0;i<3;i++,m++) {  %>
+        <% if(m<50){%>
+        <% if(m<postcount){%>
+
+        <div id="cards" class="card m-0 m-sm-2 ">
+          <!-- <a class="button" href="<%=  data[m].node.display_url %>" download="same.jpg"> -->
+          <img id="images" class="card-img-top  card-img " src="<%=  data[m].node.display_url %>" alt="mycrush">
+          <!-- </a> -->
+
+          <div class="card-body p-0 pt-3">
+            <h5><%= "\u2764" %> <span><%= data[m].node.edge_media_preview_like.count %></span> <i
+                class="fa fa-comments" aria-hidden="true"
+                style="color:rgb(41, 33, 28); position:absolute; right:15%;"></i> <span
+                style="position:absolute;right:5%"><%= data[m].node.edge_media_to_comment.count%></span></h5>
+               </div>
+        </div>
+
+        <% } %>
+        <% } %>
+        <% }%>
+      </div>
+      <%}%>
+      ////////////////////////////////////////////
+<div class="container-fluid p-0 m-0">
+
+    <div class="grids ">
+      <% for (var j=0,m=0;j<data.length;j++,m++){%>
+      <!-- <div class="card-group justify-content-around m-0"> -->
+       
+
+        <div id="cards" class="card m-0 m-sm-2 ">
+          <!-- <a class="button" href="<%=  data[m].node.display_url %>" download="same.jpg"> -->
+          <img id="images" class="card-img-top  card-img " src="<%=  data[m].node.display_url %>" alt="mycrush">
+          <!-- </a> -->
+
+          <div class="card-body p-0 pt-3">
+            <h5><%= "\u2764" %> <span><%= data[m].node.edge_media_preview_like.count %></span> <i
+                class="fa fa-comments" aria-hidden="true"
+                style="color:rgb(41, 33, 28); position:absolute; right:15%;"></i> <span
+                style="position:absolute;right:5%"><%= data[m].node.edge_media_to_comment.count%></span></h5>
+               </div>
+        </div>
+
+        <% } %>
+        
+      </div>
+      
+    </div>

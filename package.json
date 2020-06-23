@@ -1,0 +1,40 @@
+{
+  "name": "instagramphotodownload",
+  "version": "1.0.0",
+  "description": "Enter the User name to download instagram unlimited photos and videos from public instagram account",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "profilepicture",
+    "download",
+    "instagram",
+    "media",
+    "photos",
+    "instagram photos"
+  ],
+  "author": "Kumar Shubham",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "ejs": "^3.0.2",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2",
+    "request": "^2.88.2"
+  },
+  "bin": {
+    "instagramphotodownload": "appV1.js"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubham1898/InstagramDownloader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shubham1898/InstagramDownloader/issues"
+  },
+  "homepage": "https://github.com/shubham1898/InstagramDownloader#readme"
+}
