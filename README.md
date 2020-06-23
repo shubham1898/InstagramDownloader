@@ -1,5 +1,5 @@
 # Instagram Downloader
-Now you can download all the Photos and Videos of an Instagram User.No Restriction or limitations.Just enter the User name and Start!!!.You can also search User name here.
+Now you can download all the Photos and Videos of an Instagram User.No Restriction or limitations.Just enter the User name and Start!!!.You can also for search User name here.
 # How to use
 You must have node installed in your computer
 1. Open terminal in VScode or Command prompt or shell etc
@@ -12,7 +12,7 @@ You must have node installed in your computer
 ![Home Page](public/home.png)
 ![search Home](public/Search.png)
 RESULT
-![result Page](public/Resultup.png)
+![result Page](public/ResultUp.png)
 ![result Page](public/ResultDn.png)
 
 
