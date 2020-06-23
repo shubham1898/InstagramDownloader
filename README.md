@@ -1,6 +1,5 @@
 # Instagram Downloader
-This web app can download latest picture from any public instagram account.
-Download all the latest Photos from a public instagram account in high quality
+Now you can download all the Photos and Videos of an Instagram User.No Restriction or limitations.Just enter the User name and Start!!!.You can also search User name here.
 # How to use
 You must have node installed in your computer
 1. Open terminal in VScode or Command prompt or shell etc
@@ -10,15 +9,16 @@ You must have node installed in your computer
 5. open your web bowser and search localhost:3000
 
 # Demo
-![Home Page](https://github.com/shubham1898/InstagramDownloader/blob/master/public/homepage.png)
-
-
-![result Page](https://github.com/shubham1898/InstagramDownloader/blob/master/public/resultpage.png)
+![Home Page](public/home.png)
+![search Home](public/Search.png)
+RESULT
+![result Page](public/Resultup.png)
+![result Page](public/ResultDn.png)
 
 
 # Info
 Feel free to contribute to any improvement
 
-# Limitations
-1.Only Latest 50 photos is accessible;
-2.User profile must be public
+# Notes
+1. User profile must be public
+2. Unlimited access to Photos and videos of an IG user
