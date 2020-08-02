@@ -52,11 +52,9 @@ app.get("/", async (req, res) => {
 app.post("/username", async (req, res) => {
     try {
         parsedata = req.body.userID;
-        // siteUrl = "https://www.instagram.com/" + parsedata + "/?__a=1";
         siteUrl = `${process.env.Basic_uri}/${parsedata}/?__a=1`;
         //for getting user ID and post count of user
         await fetchData();
-        //id=globalresult.logging_page_id.slice(12,22);
         id = globalresult.graphql.user.id;
         console.log(id)
         profilepicurl = globalresult.graphql.user.profile_pic_url;
@@ -65,14 +63,12 @@ app.post("/username", async (req, res) => {
         postcount = globalresult.graphql.user.edge_owner_to_timeline_media.count;
         //using their data in another api to get all media
         //itteration to fetch all data using end curser and new link
-        // siteUrl = 'https://instagram.com/graphql/query/?query_hash=44efc15d3c13342d02df0b5a9fa3d33f&variables={"id":' + id + ',"first":50,"after":null}';
         siteUrl = `${process.env.Main_uri}${id},"first":50,"after":null}`;
         globalresult = {};
         await fetchData();
         IsNextPage = globalresult.data.user.edge_owner_to_timeline_media.page_info.has_next_page;
         end_Cursor = globalresult.data.user.edge_owner_to_timeline_media.page_info.end_cursor;
         data = globalresult.data.user.edge_owner_to_timeline_media.edges;
-
         res.render("resultup.ejs", { nextpage: IsNextPage, endcursor: end_Cursor, data: data, userid: id, postcount: postcount, fullname: full_name, bio: bio, k: count1, profilepicurl: profilepicurl, username: parsedata });
     }
     catch (e) {
@@ -82,14 +78,12 @@ app.post("/username", async (req, res) => {
 });
 app.get("/next", async (req, res) => {
     try {
-        // siteUrl = 'https://instagram.com/graphql/query/?query_hash=44efc15d3c13342d02df0b5a9fa3d33f&variables={"id":' + id + ',"first":50,"after":"' + end_Cursor + '"}';
-           siteUrl=`${process.env.Main_uri}${id},"first":50,"after":"${end_Cursor}"}`;
+        siteUrl=`${process.env.Main_uri}${id},"first":50,"after":"${end_Cursor}"}`;
         await fetchData();
         IsNextPage = globalresult.data.user.edge_owner_to_timeline_media.page_info.has_next_page;
         end_Cursor = globalresult.data.user.edge_owner_to_timeline_media.page_info.end_cursor;
         data = globalresult.data.user.edge_owner_to_timeline_media.edges;
         res.render("resultup.ejs", { nextpage: IsNextPage, endcursor: end_Cursor, data: data, userid: id, postcount: postcount, fullname: full_name, bio: bio, k: count1, profilepicurl: profilepicurl, username: parsedata })
-
     } catch (e) {
         console.error(e); // log internal error
         return next(new Error('Internal Server Error')); // return public error to client
@@ -97,9 +91,7 @@ app.get("/next", async (req, res) => {
 })
 
 app.get("/inframe/bar", async (req, res) => {
-
     try {
-
         res.render("search.ejs");
     } catch (e) {
         console.log(e);
@@ -110,13 +102,9 @@ app.get("/inframe/bar", async (req, res) => {
 app.post("/inframe/term", async (req, res) => {
     try {
         serachterm = req.body.search;
-
-        // siteUrl = 'https://www.instagram.com/web/search/topsearch/?context=blended&query=' + serachterm;
         siteUrl = `${process.env.Search_uri}${serachterm}`;
         await fetchData();
         list = globalresult.users;
-        //console.log(list);
-
         res.render("term.ejs", { list: list });
     } catch (e) {
         console.log(e);
