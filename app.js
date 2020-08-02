@@ -85,7 +85,7 @@ app.get("/next", async (req, res) => {
         // siteUrl = 'https://instagram.com/graphql/query/?query_hash=44efc15d3c13342d02df0b5a9fa3d33f&variables={"id":' + id + ',"first":50,"after":"' + end_Cursor + '"}';
            siteUrl=`${process.env.Main_uri}${id},"first":50,"after":"${end_Cursor}"}`;
         await fetchData();
-        IsNextPage = globalresult.data.user.edge_owner_to_timceline_media.page_info.has_next_page;
+        IsNextPage = globalresult.data.user.edge_owner_to_timeline_media.page_info.has_next_page;
         end_Cursor = globalresult.data.user.edge_owner_to_timeline_media.page_info.end_cursor;
         data = globalresult.data.user.edge_owner_to_timeline_media.edges;
         res.render("resultup.ejs", { nextpage: IsNextPage, endcursor: end_Cursor, data: data, userid: id, postcount: postcount, fullname: full_name, bio: bio, k: count1, profilepicurl: profilepicurl, username: parsedata })
