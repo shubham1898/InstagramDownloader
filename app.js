@@ -4,8 +4,10 @@ var request = require("request");
 const cheerio = require("cheerio");
 const axios = require("axios");
 var bodyParser = require("body-parser");
+const dotenv=require('dotenv')
 
 var app = express();
+dotenv.config();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 //variables
@@ -50,7 +52,8 @@ app.get("/", async (req, res) => {
 app.post("/username", async (req, res) => {
     try {
         parsedata = req.body.userID;
-        siteUrl = "https://www.instagram.com/" + parsedata + "/?__a=1";
+        // siteUrl = "https://www.instagram.com/" + parsedata + "/?__a=1";
+        siteUrl = `${process.env.Basic_uri}/${parsedata}/?__a=1`;
         //for getting user ID and post count of user
         await fetchData();
         //id=globalresult.logging_page_id.slice(12,22);
@@ -62,7 +65,8 @@ app.post("/username", async (req, res) => {
         postcount = globalresult.graphql.user.edge_owner_to_timeline_media.count;
         //using their data in another api to get all media
         //itteration to fetch all data using end curser and new link
-        siteUrl = 'https://instagram.com/graphql/query/?query_hash=44efc15d3c13342d02df0b5a9fa3d33f&variables={"id":' + id + ',"first":50,"after":null}';
+        // siteUrl = 'https://instagram.com/graphql/query/?query_hash=44efc15d3c13342d02df0b5a9fa3d33f&variables={"id":' + id + ',"first":50,"after":null}';
+        siteUrl = `${process.env.Main_uri}${id},"first":50,"after":null}`;
         globalresult = {};
         await fetchData();
         IsNextPage = globalresult.data.user.edge_owner_to_timeline_media.page_info.has_next_page;
@@ -78,9 +82,10 @@ app.post("/username", async (req, res) => {
 });
 app.get("/next", async (req, res) => {
     try {
-        siteUrl = 'https://instagram.com/graphql/query/?query_hash=44efc15d3c13342d02df0b5a9fa3d33f&variables={"id":' + id + ',"first":50,"after":"' + end_Cursor + '"}';
+        // siteUrl = 'https://instagram.com/graphql/query/?query_hash=44efc15d3c13342d02df0b5a9fa3d33f&variables={"id":' + id + ',"first":50,"after":"' + end_Cursor + '"}';
+           siteUrl=`${process.env.Main_uri}${id},"first":50,"after":"${end_Cursor}"}`;
         await fetchData();
-        IsNextPage = globalresult.data.user.edge_owner_to_timeline_media.page_info.has_next_page;
+        IsNextPage = globalresult.data.user.edge_owner_to_timceline_media.page_info.has_next_page;
         end_Cursor = globalresult.data.user.edge_owner_to_timeline_media.page_info.end_cursor;
         data = globalresult.data.user.edge_owner_to_timeline_media.edges;
         res.render("resultup.ejs", { nextpage: IsNextPage, endcursor: end_Cursor, data: data, userid: id, postcount: postcount, fullname: full_name, bio: bio, k: count1, profilepicurl: profilepicurl, username: parsedata })
@@ -106,7 +111,8 @@ app.post("/inframe/term", async (req, res) => {
     try {
         serachterm = req.body.search;
 
-        siteUrl = 'https://www.instagram.com/web/search/topsearch/?context=blended&query=' + serachterm;
+        // siteUrl = 'https://www.instagram.com/web/search/topsearch/?context=blended&query=' + serachterm;
+        siteUrl = `${process.env.Search_uri}${serachterm}`;
         await fetchData();
         list = globalresult.users;
         //console.log(list);
@@ -118,6 +124,6 @@ app.post("/inframe/term", async (req, res) => {
     }
 })
 
-app.listen(3000, () => {
+app.listen(5000, () => {
     console.log("Serever online");
 });
